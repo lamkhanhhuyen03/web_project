@@ -11,10 +11,68 @@ $logCtrler->checkLogin();
 <html lang="en">
 	<head>
 		<title> Login </title>
-		 <link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<!--===============================================================================================-->
+  		<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 	</head>
 	
 	<body style="background: url(images/ka.jpg);">
+		<script>
+
+  		//[1] Load necesaary part
+	  		window.fbAsyncInit = function() {
+	  			FB.init({
+	  				appId      : '2070975816535430',
+	  				cookie     : true,
+	  				xfbml      : true,
+	  				version    : 'v3.3'
+	  			});
+	  			//Check status login
+	  			FB.getLoginStatus(function(response) {
+	  			    statusChangeCallback(response);
+	  			});
+
+	  		};
+
+	  		(function(d, s, id){
+	  			var js, fjs = d.getElementsByTagName(s)[0];
+	  			if (d.getElementById(id)) {return;}
+	  			js = d.createElement(s); js.id = id;
+	  			js.src = "https://connect.facebook.net/en_US/sdk.js";
+	  			fjs.parentNode.insertBefore(js, fjs);
+	  		}(document, 'script', 'facebook-jssdk'));
+
+	  		//[2] Handle login
+	  		function statusChangeCallback(response){
+	  			//Login success fb and app
+	  			if(response.status === 'connected'){
+	  				testAPI();
+	  				window.location="view/member.php";
+	  			}else if(response.status === 'not_authorized'){
+	  			//Login success fb but fail to login app
+	  				console.log('not authenticated');
+	  			}else{
+	  			//Fail to login fb
+	  				console.log('not login fb');
+	  			}
+	  		}
+
+	  		function checkLoginState() {
+	  		  FB.getLoginStatus(function(response) {
+	  		    statusChangeCallback(response);
+	  		  });
+	  		}
+	  		function testAPI() {
+			    console.log('Welcome!  Fetching your information.... ');
+			    FB.api('/me', function(response) {
+			      console.log('Successful login for: ' + response.name +' ' + response.id);
+			      window.onload = function what(){
+			     	 document.getElementById('status').innerHTML =
+			        	'Thanks for logging in, ' + response.name + '!';
+			        };
+			    });
+			}
+  		</script>
 		<?php
 
 			if(!empty($_POST['username']) && !empty($_POST['password'])) 
@@ -32,6 +90,11 @@ $logCtrler->checkLogin();
 				<p> Password</p>
 				<input type="password" name="password" placeholder="Enter Password" required="required">
 				<input type = "submit" value="Login"><br>
+				<fb:login-button 
+  					id="fb-btn"
+  					scope="public_profile,email"
+  				  	onlogin="checkLoginState();">
+  				</fb:login-button>
 				<a href="#"> Lost your password?</a><br>
 				<a href="#"> Don't have an account?</a>
 			</form>
