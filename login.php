@@ -14,6 +14,15 @@ $logCtrler->checkLogin();
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<!--===============================================================================================-->
   		<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+  		<!--===============================================================================================-->
+  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  		<!--===============================================================================================-->
+	  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  	<!--===============================================================================================-->
+	  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+	  	<!--===============================================================================================-->
+	  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+	  	<!--===============================================================================================-->
 	</head>
 	
 	<body style="background: url(images/ka.jpg);">
@@ -62,6 +71,8 @@ $logCtrler->checkLogin();
 	  		    statusChangeCallback(response);
 	  		  });
 	  		}
+
+	  		//[3] Add database
 	  		function testAPI() {
 			    console.log('Welcome!  Fetching your information.... ');
 			    FB.api('/me', function(response) {
@@ -90,15 +101,20 @@ $logCtrler->checkLogin();
 				<p> Password</p>
 				<input type="password" name="password" placeholder="Enter Password" required="required">
 				<input type = "submit" value="Login"><br>
+				<?php
+					if(isset($_GET['msg']))
+				    {
+				        $Message = "Uncorrect Username or Password";
+				        echo '<h10 class = "text-danger">'.$Message.'<h10>'.'<br>';
+				    }
+				?>
 				<fb:login-button 
   					id="fb-btn"
   					scope="public_profile,email"
   				  	onlogin="checkLoginState();">
   				</fb:login-button>
-				<a href="#"> Lost your password?</a><br>
 				<a href="#"> Don't have an account?</a>
 			</form>
-		
 		</div>
 	</body>
 </html>

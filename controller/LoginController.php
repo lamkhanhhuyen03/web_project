@@ -30,7 +30,7 @@ class LoginController extends Account
 		}
 		else
 		{
-			header('location: login.php');
+			header('location: login.php?msg');
 			exit();
 		}
 	}

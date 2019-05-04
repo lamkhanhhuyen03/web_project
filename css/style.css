@@ -7,12 +7,12 @@ body{
 }
 .LoginForm{
 	width: 320px;
-	height: 410px;
+	height: 460px;
 	background: #000;
 	color: #fff;
 	top: 50%;
 	left: 50%;
-	position: absolute;
+	position: fixed;
 	transform: translate(-50%,-50%);
 	box-sizing: border-box;
 	padding: 70px 30px;
@@ -76,6 +76,8 @@ body{
 	left:calc(50% - 50px);
 
 }
-#fb-btn{
-	margin-top:20px;
+#carousel {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */    
+  height: 80px;
+  
 }
