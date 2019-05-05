@@ -105,7 +105,8 @@ $logCtrler->checkLogin();
 					if(isset($_GET['msg']))
 				    {
 				        $Message = "Uncorrect Username or Password";
-				        echo '<h10 class = "text-danger">'.$Message.'<h10>'.'<br>';
+				        echo '<h10 class = 
+				        "text-danger">'.$Message.'<h10>'.'<br>';
 				    }
 				?>
 				<fb:login-button 
@@ -113,7 +114,7 @@ $logCtrler->checkLogin();
   					scope="public_profile,email"
   				  	onlogin="checkLoginState();">
   				</fb:login-button>
-				<a href="#"> Don't have an account?</a>
+				<a href="register.php"> Don't have an account?</a>
 			</form>
 		</div>
 	</body>
