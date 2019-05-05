@@ -18,7 +18,7 @@ class LoginController extends Account
 			{
 				$_SESSION['user_id'] = $result['username'];
 				$_SESSION['user_role'] = $result['role'];
-				header('location: view/member.php');
+				header('location: index.php');
 				exit();
 			}
 			else if ($result['role'] == 'admin') {
@@ -49,7 +49,7 @@ class LoginController extends Account
 				$acc->createAccount($username,$password);
 				$_SESSION['user_id'] = $result['username'];
 				$_SESSION['user_role'] = $result['role'];
-				header('location: view/member.php');
+				header('location: index.php');
 				exit();
 			}
 			else {
@@ -65,7 +65,7 @@ class LoginController extends Account
 		{
 			if ($_SESSION['user_role'] == 'member')
 			{
-				header('location: view/member.php');
+				header('location: index.php');
 				die();
 			}
 			else if ($_SESSION['user_role'] == 'admin') {

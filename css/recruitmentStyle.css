@@ -1,0 +1,78 @@
+body{
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  background-position: center;
+  font-family: sans-serif;
+}
+.LoginForm{
+  width: 320px;
+  height: 600px;
+  background: #000;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  position: fixed;
+  transform: translate(-50%,-50%);
+  box-sizing: border-box;
+  padding: 70px 30px;
+}
+.LoginForm h1{
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 22px;
+}
+.LoginForm p{
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+
+}
+.LoginForm input{
+  width: 100%;
+  margin-bottom: 20px;
+}
+.LoginForm input[type = "text"], input[type ="password"]{
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  color: #fff;
+  font-size: 13px;
+}
+.LoginForm input[type = "submit"]{
+  border: none;
+  outline: none;
+  height: 40px;
+  background: #fb2525;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 20px;
+}
+.LoginForm input[type ="submit"]:hover{
+  cursor: pointer;
+  background: #ffc107;
+  color: #000;
+}
+.LoginForm a{
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 20px;
+  color: darkgrey;
+}
+.LoginForm a:hover{
+  color: #ffc107;
+  background: #ffc107;
+  color: #000;
+}
+.FindJob{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  top: -50px;
+  left:calc(50% - 50px);
+
+}

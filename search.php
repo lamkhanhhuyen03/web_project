@@ -34,40 +34,7 @@ $logCtrler = new ManagerAdmin;
     
   </head>
   <body>
-  <script>
-
-        //[1] Load necesaary part
-        window.fbAsyncInit = function() {
-          FB.init({
-            appId      : '2070975816535430',
-            cookie     : true,
-            xfbml      : true,
-            version    : 'v3.3'
-          });
-        };
-
-        (function(d, s, id){
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) {return;}
-          js = d.createElement(s); js.id = id;
-          js.src = "https://connect.facebook.net/en_US/sdk.js";
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-        //log out App
-        function fbLogoutUser() {
-          FB.getLoginStatus(function(response) {
-            console.log(response.status);
-            if (response && response.status === 'connected') {
-              FB.logout(function(response) {
-                window.location="../index1.php";
-              });
-            }else{
-              window.location="controller/Logout.php";
-            }
-          });
-        }
-
-    </script>
+  
   <div class="site-wrap">
 
     <div class="site-mobile-menu">
@@ -92,10 +59,20 @@ $logCtrler = new ManagerAdmin;
 
               <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li class="active"><a href="index.html">Home</a></li>
-                <li><a href="recruitment.php">Recruitment</a></li>
-                <li class="ml-xl-3 login">
-                  <a class="nav-link" href ="javascript:void(0)"onclick="fbLogoutUser()">Sign Out</a>
+                <li><a href="listings.html">Ads</a></li>
+                <li class="has-children">
+                  <a href="about.html">About</a>
+                  <ul class="dropdown">
+                    <li><a href="#">The Jobs</a></li>
+                    <li><a href="#">The Skills</a></li>
+                  </ul>
                 </li>
+                <li><a href="blog.html">Blog</a></li>
+                <li class="mr-5"><a href="contact.html">Contact</a></li>
+
+                <li class="ml-xl-3 login"><a href="login.html"><span class="border-left pl-xl-4"></span>Log In</a></li>
+
+                <li><a href="register.html" class="cta"><span class="bg-primary text-white rounded">Register</span></a></li>
               </ul>
             </nav>
           </div>
@@ -277,38 +254,44 @@ $logCtrler = new ManagerAdmin;
         </div>
         <div class="row mt-5">
           <?php
-          $i = 4;
+         	 $i = 4;
+         	 $k = 0;
+          	$kq = $logCtrler -> searchDatabase($_POST['search']);
+          	if($kq == false){
+          		echo"Cant find";
+          		$GLOBALS['k']++;
+          	}
+          	if($GLOBALS['k'] == 0){
+	          	foreach($kq as $result){
+	            $id = $result['id'] ; 
+	            $technology = $result['technology']; 
+	            $salary = $result['salary']; 
+	            $decription = $result['decription']; 
+	            $address = $result['address']; 
+	            $phonenumber = $result['phonenumber'];
+	            if($GLOBALS['i']%2 == 0){
+	              echo "<div class='col-lg-6'>";
+	            } 
 
-          $kq = $logCtrler -> showDatabase();
-          foreach($kq as $result){
-            $id = $result['id'] ; 
-            $technology = $result['technology']; 
-            $salary = $result['salary']; 
-            $decription = $result['decription']; 
-            $address = $result['address']; 
-            $phonenumber = $result['phonenumber'];
-            if($GLOBALS['i']%2 == 0){
-              echo "<div class='col-lg-6'>";
-            } 
-
-            echo"
-                  <div class='d-block d-md-flex listing vertical'>
-                      
-                      <a = href ='blog-single.php?blog-single=$result[id]'><img src='images/FindJobdex.jpg' class='img d-block'></a>
-                      <div class='lh-content'>
-                        <span class='category'>{$technology} </span>
-                        <a href='blog-single.php?blog-single=$result[id]'' class='bookmark'><span class='icon-heart'></span></a>
-                        <button style ='font-size: 12px;'><a href='blog-single.php?blog-single=$result[id]'>Detail</a></button>
-                        <address>{$address}</address>
-                        
-                      </div>
-                    </div>
-            ";
-            $GLOBALS['i']++;
-            if($GLOBALS['i']%2 == 0){
-              echo "</div>";
-            } 
-          }
+	            echo"
+	                  <div class='d-block d-md-flex listing vertical'>
+	                      
+	                      <a = href ='blog-single.php?blog-single=$result[id]'><img src='images/FindJobdex.jpg' class='img d-block'></a>
+	                      <div class='lh-content'>
+	                        <span class='category'>{$technology} </span>
+	                        <a href='blog-single.php?blog-single=$result[id]'' class='bookmark'><span class='icon-heart'></span></a>
+	                        <button style ='font-size: 12px;'><a href='blog-single.php?blog-single=$result[id]'>Detail</a></button>
+	                        <address>{$address}</address>
+	                        
+	                      </div>
+	                    </div>
+	            ";
+	            $GLOBALS['i']++;
+	            if($GLOBALS['i']%2 == 0){
+	              echo "</div>";
+	            } 
+	          }
+	      	}	
         ?>
         </div>
       </div>
@@ -388,4 +371,4 @@ $logCtrler = new ManagerAdmin;
   <script src="js/main.js"></script>
     
   </body>
-</html>
+</html>  

@@ -34,40 +34,6 @@ $logCtrler = new ManagerAdmin;
     
   </head>
   <body>
-  <script>
-
-        //[1] Load necesaary part
-        window.fbAsyncInit = function() {
-          FB.init({
-            appId      : '2070975816535430',
-            cookie     : true,
-            xfbml      : true,
-            version    : 'v3.3'
-          });
-        };
-
-        (function(d, s, id){
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) {return;}
-          js = d.createElement(s); js.id = id;
-          js.src = "https://connect.facebook.net/en_US/sdk.js";
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-        //log out App
-        function fbLogoutUser() {
-          FB.getLoginStatus(function(response) {
-            console.log(response.status);
-            if (response && response.status === 'connected') {
-              FB.logout(function(response) {
-                window.location="../index1.php";
-              });
-            }else{
-              window.location="controller/Logout.php";
-            }
-          });
-        }
-
-    </script>
   <div class="site-wrap">
 
     <div class="site-mobile-menu">
@@ -92,9 +58,8 @@ $logCtrler = new ManagerAdmin;
 
               <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li class="active"><a href="index.html">Home</a></li>
-                <li><a href="recruitment.php">Recruitment</a></li>
                 <li class="ml-xl-3 login">
-                  <a class="nav-link" href ="javascript:void(0)"onclick="fbLogoutUser()">Sign Out</a>
+                  <a class="nav-link" href ="login.php">Login</a>
                 </li>
               </ul>
             </nav>
@@ -359,11 +324,6 @@ $logCtrler = new ManagerAdmin;
         <div class="row pt-5 mt-5 text-center">
           <div class="col-md-12">
             <div class="border-top pt-5">
-            <p>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            </p>
             </div>
           </div>
           

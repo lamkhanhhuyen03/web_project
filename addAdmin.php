@@ -62,7 +62,8 @@
 					<input type="text" name ="salary" required="required">
 				</p>
 				<p> Description
-					<input type="text" name ="description" required="required">
+					<textarea type="text" name ="description" required="required" style ='min-width:500px; max-width:100%;min-height:50px;height:100%;width:100%;'>
+					</textarea>
 				</p>
 				<p> Address
 					<input type="text" name ="address"  required="required">
@@ -71,7 +72,12 @@
 					<input type="text" name ="phonenumber"  required="required">
 				</p>
 				<input type = "submit" value="Add"><br>
-			</form>
+		</form>
+		<script > 
+			$('textarea')
+			  .focus(function() { $(this).css("background", "none") })
+			  .blur(function() { if ($(this)[0].value == '') { $(this).css("background", "url(images/benice.png) center center no-repeat") } });
+		</script>
 	  	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	  	<!--===============================================================================================-->
 	  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

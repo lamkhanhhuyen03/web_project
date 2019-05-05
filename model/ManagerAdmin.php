@@ -35,7 +35,7 @@ class ManagerAdmin extends createMysqli
 			<td>{$decription}</td>
 			<td>{$address}</td>
 			<td>{$phonenumber}</td>
-			<td><button><a href = '#' >Chi Tiết</a> </button></td>
+			<td><button><a href = 'blog-single.php?blog-single=$result[id]' >Chi Tiết</a> </button></td>
 			<td><button><a href = 'edit.php?edit=$result[id]''>Chỉnh sửa</a> </button></td>
 			<td><button><a href = 'delete.php?edit=$result[id]'''>Xóa</a> </button></td>
 			</tr>
@@ -71,6 +71,21 @@ class ManagerAdmin extends createMysqli
 		$id = $this->conn->escape_string($idd);
 		$sql = "ALTER TABLE jobs AUTO_INCREMENT = '$id'";
 		$kq = $this->conn->query($sql);	
+	}
+
+	function showDatabase(){
+		$sql = "SELECT * FROM jobs";
+		$kq = $this->conn->query($sql);
+		if ($kq->num_rows == 0) return FALSE;
+		else return $kq;
+	}
+
+	function searchDatabase($searchh){
+		$search = $this->conn->escape_string($searchh);
+		$sql = "SELECT * FROM jobs WHERE technology ='$search'";
+		$kq = $this->conn->query($sql);
+		if ($kq->num_rows == 0) return FALSE;
+		else return $kq;
 	}
 	/*WHERE technology = '$technology' AND salary = '$salary' AND decription ='$description' AND address = '$address' AND phonenumber ='$phonenumber'"
 	SET @autoid:= 0;

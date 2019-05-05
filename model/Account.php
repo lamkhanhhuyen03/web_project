@@ -21,7 +21,7 @@ class Account extends createMysqli
 		$sql= "SELECT * FROM account WHERE username='$username'";
 		$kq = $this->conn->query($sql);
 		if ($kq->num_rows == 0) return FALSE;
-		else return $kq->fetch_assoc();
+		else return $kq;
 	}
 
 	//Adding new account in database
