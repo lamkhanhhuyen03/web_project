@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>IT JOBS &mdash; Colorlib Website Template</title>
+    <title>IT JOBS</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -50,21 +50,7 @@
 
               <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li class="active"><a href="index.html">Home</a></li>
-                <li><a href="listings.html">Ads</a></li>
-                <li class="has-children">
-                  <a href="about.html">About</a>
-                  <ul class="dropdown">
-                    <li><a href="#">The Jobs</a></li>
-                    <li><a href="#">The Skills</a></li>
-                   
-                  </ul>
-                </li>
-                <li><a href="blog.html">Blog</a></li>
-                <li class="mr-5"><a href="contact.html">Contact</a></li>
-
-                <li class="ml-xl-3 login"><a href="login.html"><span class="border-left pl-xl-4"></span>Log In</a></li>
-
-                <li><a href="register.html" class="cta"><span class="bg-primary text-white rounded">Register</span></a></li>
+                <li class="ml-xl-3 login"><a href="login.html"><span class="border-left pl-xl-4"></span>Log Out</a></li>
               </ul>
             </nav>
           </div>
@@ -84,17 +70,7 @@
       <div class="container">
         <div class="row align-items-center justify-content-center text-center">
 
-          <div class="col-md-10" data-aos="fade-up" data-aos-delay="400">
-            
-            
-            <div class="row justify-content-center mt-5">
-              <div class="col-md-8 text-center">
-                <h1>Many People Selling Online</h1>
-                <p class="mb-0">April 24th, 2019 <span class="mx-2">&bullet;</span> by <a href="#" class="text-white">Colorlib</a></p>
-              </div>
-            </div>
-
-            
+          <div class="col-md-10" data-aos="fade-up" data-aos-delay="400">        
           </div>
         </div>
       </div>
@@ -179,18 +155,6 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="row pt-5 mt-5 text-center">
-          <div class="col-md-12">
-            <div class="border-top pt-5">
-            <p>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            </p>
-            </div>
-          </div>
-          
         </div>
       </div>
     </footer>

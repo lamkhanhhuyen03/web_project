@@ -71,7 +71,7 @@ $logCtrler = new ManagerAdmin;
 		</thead>
 		<?php
 		/*if(!empty($_POST['technology']) && !empty($_POST['salary']) && !empty($_POST['description']) && !empty($_POST['address']) && !empty($_POST['phonenumber'])) {*/
-			$result1 = $logCtrler -> getDatabase();
+			$result1 = $logCtrler -> gettempJobs();
 			  	/*foreach($result1 as $result){
 				  	$id = $result['id'] + 1; 
 				  	$technology = $result['technology']; 
@@ -97,7 +97,6 @@ $logCtrler = new ManagerAdmin;
 				}*/
 		//}
 				?>
-				<td><button><a href = "addAdmin.php" onclick="createCol()">Thêm</a></button></td>
 			</table>
 			<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 			<!--===============================================================================================-->

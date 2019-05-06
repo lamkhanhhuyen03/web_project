@@ -1,6 +1,10 @@
 <?php
 
-
+session_start();
+if (empty($_SESSION['user_id']))
+{
+  header('location: login.php');
+}
 require_once 'model/ManagerAdmin.php';
 
 $logCtrler = new ManagerAdmin;
@@ -85,13 +89,13 @@ $logCtrler = new ManagerAdmin;
         <div class="row align-items-center">
           
           <div class="col-6 col-xl-2">
-            <h1 class="mb-0 site-logo"><a href="index.html" class="text-white mb-0">IT JOBS</a></h1>
+            <h1 class="mb-0 site-logo"><a href="index.php" class="text-white mb-0">IT JOBS</a></h1>
           </div>
           <div class="col-12 col-md-10 d-none d-xl-block">
             <nav class="site-navigation position-relative text-right" role="navigation">
 
               <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
-                <li class="active"><a href="index.html">Home</a></li>
+                <li class="active"><a href="index.php">Home</a></li>
                 <li><a href="recruitment.php">Recruitment</a></li>
                 <li class="ml-xl-3 login">
                   <a class="nav-link" href ="javascript:void(0)"onclick="fbLogoutUser()">Sign Out</a>
@@ -172,7 +176,7 @@ $logCtrler = new ManagerAdmin;
             <div class="owl-carousel nonloop-block-13">
               
               <div class="d-block d-md-flex listing vertical">
-                <a href="listings-single.html" class="img d-block" style="background-image: url('images/Square.png')"></a>
+                <a href="#" class="img d-block" style="background-image: url('images/Square.png')"></a>
                 <div class="lh-content">
                   <span class="category">Software Engineer</span>
                   <a href="#" class="bookmark"><span class="icon-heart"></span></a>
@@ -183,7 +187,7 @@ $logCtrler = new ManagerAdmin;
               </div>
 
               <div class="d-block d-md-flex listing vertical">
-                <a href="listings-single.html" class="img d-block" style="background-image: url('images/kydon.png')"></a>
+                <a href="#" class="img d-block" style="background-image: url('images/kydon.png')"></a>
                 <div class="lh-content">
                   <span class="category">PHP Developer</span>
                   <a href="#" class="bookmark"><span class="icon-heart"></span></a>
@@ -194,7 +198,7 @@ $logCtrler = new ManagerAdmin;
               </div>
 
               <div class="d-block d-md-flex listing vertical">
-                <a href="listings-single.html" class="img d-block" style="background-image: url('images/novaon.png')"></a>
+                <a href="#" class="img d-block" style="background-image: url('images/novaon.png')"></a>
                 <div class="lh-content">
                   <span class="category">PHP/NodeJS DEVELOPER</span>
                   <a href="#" class="bookmark"><span class="icon-heart"></span></a>
@@ -205,7 +209,7 @@ $logCtrler = new ManagerAdmin;
               </div>
 
               <div class="d-block d-md-flex listing vertical">
-                <a href="listings-single.html" class="img d-block" style="background-image: url('images/VPNT.png')"></a>
+                <a href="#"class="img d-block" style="background-image: url('images/VPNT.png')"></a>
                 <div class="lh-content">
                   <span class="category">Web Developer</span>
                   <a href="#" class="bookmark"><span class="icon-heart"></span></a>
@@ -216,7 +220,7 @@ $logCtrler = new ManagerAdmin;
               </div>
 
               <div class="d-block d-md-flex listing vertical">
-                <a href="listings-single.html" class="img d-block" style="background-image: url('images/Square.png')"></a>
+                <a href="#" class="img d-block" style="background-image: url('images/Square.png')"></a>
                 <div class="lh-content">
                   <span class="category">Software Engineer</span>
                   <a href="#" class="bookmark"><span class="icon-heart"></span></a>
@@ -227,7 +231,7 @@ $logCtrler = new ManagerAdmin;
               </div>
 
               <div class="d-block d-md-flex listing vertical">
-                <a href="listings-single.html" class="img d-block" style="background-image: url('images/kydon.png')"></a>
+                <a href="#" class="img d-block" style="background-image: url('images/kydon.png')"></a>
                 <div class="lh-content">
                   <span class="category">PHP Developer</span>
                   <a href="#" class="bookmark"><span class="icon-heart"></span></a>
@@ -238,7 +242,7 @@ $logCtrler = new ManagerAdmin;
               </div>
 
               <div class="d-block d-md-flex listing vertical">
-                <a href="listings-single.html" class="img d-block" style="background-image: url('images/novaon.png')"></a>
+                <a href="#" class="img d-block" style="background-image: url('images/novaon.png')"></a>
                 <div class="lh-content">
                   <span class="category">PHP/NodeJS DEVELOPER</span>
                   <a href="#" class="bookmark"><span class="icon-heart"></span></a>
@@ -249,7 +253,7 @@ $logCtrler = new ManagerAdmin;
               </div>
 
               <div class="d-block d-md-flex listing vertical">
-                <a href="listings-single.html" class="img d-block" style="background-image: url('images/VPNT.png')"></a>
+                <a href="#" class="img d-block" style="background-image: url('images/VPNT.png')"></a>
                 <div class="lh-content">
                   <span class="category">Web Developer</span>
                   <a href="#" class="bookmark"><span class="icon-heart"></span></a>
@@ -352,18 +356,6 @@ $logCtrler = new ManagerAdmin;
                 <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
                 <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
               </div>
-            </div>
-          </div>
-          
-        </div>
-        <div class="row pt-5 mt-5 text-center">
-          <div class="col-md-12">
-            <div class="border-top pt-5">
-            <p>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            </p>
             </div>
           </div>
           

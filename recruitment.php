@@ -17,7 +17,7 @@
 	</head>
 	
 	<body style="background: url(images/ka.jpg);">
-		<div class="LoginForm">
+		<div class = "LoginForm">
 			<img src="images/FindJob.jpg" class = "FindJob">
 			<h1> Recruitment</h1>	
 

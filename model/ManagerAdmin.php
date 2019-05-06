@@ -87,6 +87,55 @@ class ManagerAdmin extends createMysqli
 		if ($kq->num_rows == 0) return FALSE;
 		else return $kq;
 	}
+
+	function addtemptDataBase($technolog, $salar ,$descriptio,$addres,$phonenumbe){
+		$technology = $this->conn->escape_string($technolog);
+		$salary = $this->conn->escape_string($salar);
+		$description = $this->conn->escape_string($descriptio);
+		$address = $this->conn->escape_string($addres);
+		$phonenumber = $this->conn->escape_string($phonenumbe);
+		$sql = "INSERT INTO temptjobs(technology,address,phonenumber,salary,decription) VALUES ('$technology','$salary','$description','$address','$phonenumber')";
+		$kq = $this->conn->query($sql);
+	}
+
+	function gettempJobs(){
+		$sql = "SELECT * FROM temptjobs";
+		$kq = $this->conn->query($sql);
+		foreach($kq as $result){
+			$id = $result['id'] ; 
+			$technology = $result['technology']; 
+			$salary = $result['salary']; 
+			$decription = $result['decription']; 
+			$address = $result['address']; 
+			$phonenumber = $result['phonenumber']; 
+			echo"
+			<tbody>
+			<tr>
+			<th scope='row'>{$id}</th>
+			<td><a href ='#'>{$technology}</a></td>
+			<td>{$salary}</td>
+			<td>{$decription}</td>
+			<td>{$address}</td>
+			<td>{$phonenumber}</td>
+			<td><button><a href = 'accept.php?accept=$result[id]'>Accept</a> </button></td>
+			<td><button><a href = 'unaccept.php?unaccept=$result[id]'>Delete</a> </button></td>
+			</tr>
+			</tbody>
+			";
+		}
+	}
+	function getAccept($idd){
+		$id = $this->conn->escape_string($idd);
+		$sql = "SELECT * FROM temptjobs WHERE id ='$id'";
+		$kq = $this->conn->query($sql);
+		if ($kq->num_rows == 0) return FALSE;
+		else return $kq->fetch_assoc();
+	}
+	function deletetemptTable($idd){
+		$id = $this->conn->escape_string($idd);
+		$sql = "DELETE FROM temptjobs WHERE id = '$id'";
+		$kq = $this->conn->query($sql);
+	}
 	/*WHERE technology = '$technology' AND salary = '$salary' AND decription ='$description' AND address = '$address' AND phonenumber ='$phonenumber'"
 	SET @autoid:= 0;
 	UPDATE account SET id = @autoid := (@autoid + 1);
